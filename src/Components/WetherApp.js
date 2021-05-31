@@ -8,11 +8,8 @@ function WetherApp() {
         const fetchApi = async () => {
             const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=ca59b33db2788321e05ac35284e0c1f6`
             const response = await fetch(url)
-            console.log(response)
             const resJson = await response.json()
-            console.log(resJson)
             setCity(resJson)
-            console.log(setCity(resJson))
         }
         fetchApi()
     }, [setSearch])
@@ -25,19 +22,15 @@ function WetherApp() {
                         className='form-control'
                         value={search}
                         onChange={(e) => { setSearch(e.target.value) }}></input><br />
-
                     {!city ? (<p>No data Found</p>) : (
                         <div>
                             <i>{search}</i>
                             <h1>{city.main.temp}°Cel</h1>
-                            {/* <h3>Min:{city.temp_min} | Max:{city.temp_min}</h3> */}
                         </div>
                     )}
                 </div>
             </div>
-
             <div>
-
             </div>
         </>
     )
